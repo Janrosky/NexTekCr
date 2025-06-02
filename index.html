@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NexTek CR - Consultoría Tecnológica e Informática</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-header {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #e74c3c;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
+        }
+
+        .services {
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(231, 76, 60, 0.5);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .about {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .contact {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+        }
+
+        .contact-info a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <img
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NexTek_Logo3-aaQgCnfHZeWLfRkQqnw23bsXFKTQ6B.png"
+                alt="NexTek CR Logo"
+                class="logo-header"
+            />
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="ceo.html">Acerca de</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NexTek_Logo3-aaQgCnfHZeWLfRkQqnw23bsXFKTQ6B.png"
+                    alt="NexTek CR Logo"
+                    class="hero-logo"
+                />
+                <h1>NexTek CR</h1>
+                <p class="subtitle">Soluciones Tecnológicas y Productos de Calidad</p>
+                <p>
+                    En NexTek CR combinamos innovación tecnológica con productos premium para ayudarte a crecer y destacar en tu sector. Desde consultoría especializada hasta artículos cuidadosamente seleccionados, todo diseñado para tu éxito.
+                </p>
+                <a href="#contacto" class="cta-button">Contáctanos Ahora</a>
+            </div>
+        </section>
+
+        <section id="servicios" class="services">
+            <div class="container">
+                <h2>Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🛒</div>
+                        <h3>Venta de Productos</h3>
+                        <p>
+                            Ofrecemos una exclusiva línea de productos deportivos y ropa de alta calidad, pensada para quienes valoran el rendimiento y el estilo en su día a día.
+                        </p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3>Consultoría Tecnológica</h3>
+                        <p>
+                            Brindamos consultoría tecnológica personalizada para optimizar tus procesos y potenciar tu negocio con soluciones integrales y adaptadas a tus necesidades.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="about">
+            <div class="container">
+                <h2>Sobre Nosotros</h2>
+                <p>
+                    En NexTek CR nos dedicamos a ofrecer soluciones tecnológicas integrales junto con productos de alta calidad, todo orientado a impulsar el crecimiento y la innovación de nuestros clientes. Contamos con un equipo de profesionales comprometidos en adaptar cada servicio y producto a las necesidades específicas de tu empresa, persona o proyecto.
+                </p>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact">
+            <div class="container">
+                <h2>Contacto</h2>
+                <p>¿Quieres saber más? Estamos aquí para ayudarte.</p>
+                <div class="contact-info">
+                    <p>Email: <a href="janrosky@gmail.com">janrosky@gmail.com</a></p>
+                    <p>Teléfono: <a href="tel:+506 83504511">+506 8350 4511</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <img
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NexTek_Logo3-aaQgCnfHZeWLfRkQqnw23bsXFKTQ6B.png"
+            alt="NexTek CR Logo"
+            class="footer-logo"
+        />
+        <p>Consultoría Tecnológica Integral y Productos Premium de Calidad</p>
+    </footer>
+</body>
+</html>
